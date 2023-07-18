@@ -40,5 +40,5 @@ La industria autoabastecida y de generación de energía eléctrica utilizó alr
 fuente de abasto, lo dominan las aguas superficiales (osciló entre 68 y 77% en el periodo 2001 y 2017, esto es, entre 5 074 y 5 659 hm3 respectivamente), sin 
 embargo, la extracción de agua subterránea para la industria aumentó poco más del 68.6% entre 2001-2017 alcanzando 2 683 hm3 ; Figura 6.15).
 
-![imagen](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-PLUVIAL/assets/136390705/f12db720-f96a-4be0-91b0-62c090b7ace5)
+![imagen](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-PLUVIAL/assets/136390705/753af251-8e2f-407c-9e36-c09acbc76371)
 
