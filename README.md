@@ -1,12 +1,6 @@
 ## SISTEMA-DE-CONTROL-DE-AGUA-EN-POZOS
 Proyecto que conlleva a la sostenibilidad e sustentabilidad en el mundo actual y futuro.  
 
-##### ALMACENAMIENTO EN PRESAS
-
-El abasto del agua para el consumo de la población y para las actividades productivas ha hecho necesario contar con mayores volúmenes del líquido de los que se pueden obtener de las fuentes de suministro más comunes (como los ríos, lagos y acuíferos), por lo que se ha construido infraestructura (por ejemplo, presas, embalses y bordos) para reducir los efectos de las contingencias ocasionadas por la variabilidad natural. La construcción de presas y embalses, además de cumplir con este propósito, sirve también para el control de avenidas y, en algunos casos, para la generación de energía eléctrica.
-
-![imagen](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-PLUVIAL/assets/136390705/6e38b07d-6668-4f68-b4bc-3cd93652b65a)
-
 ##### USOS CONSUNTIVOS DEL AGUA
 
 La cantidad de agua que consumen los diferentes sectores difiere entre países y regiones debido a sus características ambientales, socioeconómicas y poblacionales.
