@@ -1,6 +1,6 @@
 
 // Bibliotecas
-#include <WiFi.h> // Biblioteca WiFi
+#include <WiFi.h> // Biblioteca WiFi 5
 #include <PubSubClient.h> // Biblioteca MQTT
 #include "DHT.h" // Biblioteca para el sensor DHT11
 
