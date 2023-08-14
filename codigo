@@ -1,18 +1,24 @@
-
 // Bibliotecas
-#include <WiFi.h> // Biblioteca WiFi 5
+#include <WiFi.h> // Biblioteca WiFi
 #include <PubSubClient.h> // Biblioteca MQTT
 #include "DHT.h" // Biblioteca para el sensor DHT11
 
 // Datos de red
-const char* ssid = "Totalplay-2.4G-1010";
-const char* password = "1Pedro23";
+const char* ssid = "OPPO A72";
+const char* password = "142001kaaaren";
 const char* mqtt_server = "52.28.227.73";
 const int INTERVAL = 1000;  //Tiempo en milisegundos entre lecturas
 
 // Datos del sensor
 #define DHTPIN 14 // Pin para conectar el DHT11, pin GPIO13 del ESP32CAM
 #define DHTTYPE DHT11 // Configura el modelo de sensor, compatible también con DHT22
+#define FLOW_SENSOR 13 // El sensor de flujo de agua está conectado al GPIO4
+
+
+volatile int flowCounter; // Este entero volátil almacena el número de pulsos del sensor de flujo.
+void IRAM_ATTR pulseCounter() {
+  flowCounter++;
+}
 
 // Variables para envio de mensajes
 unsigned long lastMsg = 0; // Contador de tiempo mensajes
@@ -23,11 +29,10 @@ char msg[MSG_BUFFER_SIZE]; // Variable para conversión de mensaje
 int trig = 2;  // Representa el pin con el que se activa el sensor
 int echo = 15;  // Representa el pin en el que se lle a respuesta del sensor
 int statusLedPin = 33;  // Esta variable controla el led de status
-int flashLedPin = 4; // Esta variable controla el led flash
+int flashLedPin = 12; // Esta variable controla el led flash
 bool statusLed = 0;// Bandera que me dice si el led esta encendido o apagado
 long t;  // Variable que almacena el tiempo que tarda en regesar el eco
 long d;  // Variable que almacena el resultado del calculo de la distancia
-
 
 // Variables para el manejo de tiempo
 double timeLast, timeNow; // Variables para el control de tiempo no bloqueante
@@ -37,8 +42,8 @@ double RECONNECT_WAIT = 5000; // Espera de 5 segundos entre conexiones
 
 // Temas MQTT
 const char* mqttMsg = "codigoIoT/esp32/msg";
-const char* mqttCallback = "codigoIoT/esp32/callback";
-const char* mqttDHT = "CuautlaDHT11";
+const char* mqttCallback = "rele2";
+const char* mqttDHT = "CuerDHT11";
 
 // Objetos WiFi, MQTT y sensor
 WiFiClient espClient; // Objeto para conexion a WiFi
@@ -105,6 +110,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.println("Led apagado");
     digitalWrite(flashLedPin, LOW);
   }
+
+
+
 }
 
 // Función de recomexión. Devuelve valor booleano para indicar exito o falla
@@ -142,6 +150,9 @@ void setup() {
   pinMode (flashLedPin, OUTPUT);// Se configura el pin como salida
   digitalWrite (statusLedPin, HIGH);// Se comienza con el led apagado
   digitalWrite (flashLedPin, LOW);// Se comienza con el led apagado
+     pinMode(FLOW_SENSOR, INPUT_PULLUP); // Configura el pin del sensor de flujo como entrada
+       attachInterrupt(digitalPinToInterrupt(FLOW_SENSOR), pulseCounter, RISING);  // Asocia la función de interrupción pulseCounter al pin del sensor de flujo
+
 
   // Iniciar conexiones  
   setup_wifi();
@@ -180,12 +191,29 @@ void loop() {
       // Enviar lectura por MQTT
     char dataString [8];
     dtostrf (d, 1, 2, dataString);  // Convierte a String la lectura del sensor
-    client.publish ("POZO1/ULTRASONICO",dataString); // Enviar el valor de la lectura al tema adecuado en MQTT
+    client.publish ("POZO1/ULTRASONIC2O",dataString); // Enviar el valor de la lectura al tema adecuado en MQTT
     Serial.print ("Lectura del sensor: ");  // Se reporta también por serial
     Serial.print (d);
     Serial.println ("cm");
     
+     flowCounter = 0; // Resetea el contador de flujo al inicio de cada ciclo de lazo.
+  delay(1000); // Espera un segundo (durante este tiempo, la función de interrupción estará contando los pulsos del sensor de flujo).
+
+  // Ahora, calcula el caudal de agua en litros por minuto (L/min).
+  // Los sensores de flujo normalmente envían entre 450 y 450 pulsos por litro.
+  // Este valor puede variar dependiendo del sensor específico que se utilice, consulta la documentación del tuyo para obtener el valor exacto.
+  float flowRate = (flowCounter / 450.0) * 60.0;
+
+// Enviar lectura por MQTT
+    char dataStrin [9];
+    dtostrf (flowRate, 3, 4, dataStrin);  // Convierte a String la lectura del sensor
+    client.publish ("RAMAL2",dataStrin); // Enviar el valor de la lectura al tema adecuado en MQTT
+    Serial.print ("fLUJO DE AGUA: ");  // Se reporta también por serial
+    Serial.print (flowRate);
+    Serial.println ("L/min");
+
                    
+
               
   // Función de conexion y seguimiento
   if (!client.connected()) { // Se pregunta si no existe conexión
