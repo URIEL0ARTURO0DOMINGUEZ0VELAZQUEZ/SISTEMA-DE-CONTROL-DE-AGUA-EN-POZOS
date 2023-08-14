@@ -36,3 +36,18 @@ embargo, la extracción de agua subterránea para la industria aumentó poco má
 
 ![imagen](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-PLUVIAL/assets/136390705/753af251-8e2f-407c-9e36-c09acbc76371)
 
+#### REALIZACION DEL PROTOTIPO 
+
+
+#### Esta es la forma esquematica de la central en la que se administra el pozo 
+![padpz](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-EN-POZOS/assets/136390705/058de169-b51a-4062-8f34-560656cefc61)
+
+### De manera esquematica de los ramales para poder monitorear e controlar es de la siguiente manera:
+
+![Untitled Sketch_bb](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-EN-POZOS/assets/136390705/ace79465-b186-4a16-9217-418fb1fc435e)
+
+
+
+
+
+#33
