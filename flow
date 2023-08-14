@@ -1,0 +1,56 @@
+[
+    {
+        "id": "e258f39d56680981",
+        "type": "ui_switch",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "label": "ELECTROVALVULA",
+        "tooltip": "",
+        "group": "3487ad09f6c265d7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "false",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "true",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "d0cd33ac2dedc33c"
+            ]
+        ]
+    },
+    {
+        "id": "3487ad09f6c265d7",
+        "type": "ui_group",
+        "name": "Pozo 1",
+        "tab": "420850b23a6909e1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "420850b23a6909e1",
+        "type": "ui_tab",
+        "name": "Nivel de agua ",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
