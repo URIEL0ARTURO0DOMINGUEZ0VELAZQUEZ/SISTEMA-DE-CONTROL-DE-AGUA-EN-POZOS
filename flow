@@ -1,5 +1,721 @@
 [
     {
+        "id": "64f81e88be678b38",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "CuautlaDHT11",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "36aa4a862544fb28"
+            ]
+        ]
+    },
+    {
+        "id": "36aa4a862544fb28",
+        "type": "json",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "01917ab6fd0b324c",
+                "e01f1387582b1daf"
+            ]
+        ]
+    },
+    {
+        "id": "01917ab6fd0b324c",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Temperatura",
+        "func": "msg.payload = msg.payload.temp; \nmsg.topic = \"Temperatura\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 40,
+        "wires": [
+            [
+                "ca456a5c956ba369"
+            ]
+        ]
+    },
+    {
+        "id": "e01f1387582b1daf",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Humedad",
+        "func": "msg.payload = msg.payload.hum;\nmsg.topic = \"Humedad\"; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "08fcd07250517c7b"
+            ]
+        ]
+    },
+    {
+        "id": "f418d2ec27f383be",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "POZO1/ULTRASONICO",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "2784a98654166dd4"
+            ]
+        ]
+    },
+    {
+        "id": "90e9f19e1addf84a",
+        "type": "ui_chart",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "3487ad09f6c265d7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "comportamiento de pozo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "40",
+        "ymax": "70",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-cut"
+    },
+    {
+        "id": "6cc9e3b9d8b7ddb8",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "3487ad09f6c265d7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Nivel de agua ",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": "48",
+        "max": "70",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1080,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2784a98654166dd4",
+        "type": "json",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "5f6f3f422a94274f"
+            ]
+        ]
+    },
+    {
+        "id": "08fcd07250517c7b",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "acc3d369064b8f9b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#b5835a",
+            "#00b500",
+            "#1a5fb4"
+        ],
+        "seg1": "30",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 820,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ca456a5c956ba369",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "acc3d369064b8f9b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "8",
+        "max": "45",
+        "colors": [
+            "#99c1f1",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3c667eac2474fbd2",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "CuerDHT11",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 640,
+        "wires": [
+            [
+                "dcc8019d9f8c8ee2"
+            ]
+        ]
+    },
+    {
+        "id": "dcc8019d9f8c8ee2",
+        "type": "json",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 640,
+        "wires": [
+            [
+                "76309644823a1305",
+                "1f9bddeb3a3370d6"
+            ]
+        ]
+    },
+    {
+        "id": "76309644823a1305",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Temperatura",
+        "func": "msg.payload = msg.payload.temp; \nmsg.topic = \"Temperatura\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 640,
+        "wires": [
+            [
+                "47aade96d5e08d08"
+            ]
+        ]
+    },
+    {
+        "id": "1f9bddeb3a3370d6",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Humedad",
+        "func": "msg.payload = msg.payload.hum;\nmsg.topic = \"Humedad\"; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "3d2c929c6756f978"
+            ]
+        ]
+    },
+    {
+        "id": "3d2c929c6756f978",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "289e073f4a71a17e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#b5835a",
+            "#00b500",
+            "#1a5fb4"
+        ],
+        "seg1": "30",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 800,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "47aade96d5e08d08",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "289e073f4a71a17e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "8",
+        "max": "45",
+        "colors": [
+            "#99c1f1",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5f6f3f422a94274f",
+        "type": "switch",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "POZO1/ULTRASONICO",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "90e9f19e1addf84a",
+                "6cc9e3b9d8b7ddb8"
+            ]
+        ]
+    },
+    {
+        "id": "a0038384eb9a76b4",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "RAMAL1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "7f19f3b450cfb366"
+            ]
+        ]
+    },
+    {
+        "id": "7f19f3b450cfb366",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Flujo de Agua",
+        "func": "global.set(\"flujoAgua\", msg.payload); // Genera una variable global para este valor\nmsg.topic = \"Flujo de Agua\"; // Diferenciador para la grafica\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "bd803abe48aca2c6",
+                "90e9f19e1addf84a"
+            ]
+        ]
+    },
+    {
+        "id": "bd803abe48aca2c6",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "3487ad09f6c265d7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Flujo de Agua",
+        "label": "L/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#33d17a",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 840,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ae6ece2ea7d8913e",
+        "type": "mqtt out",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "codigoIoT/esp32/callback",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1868b0174764182",
+        "x": 1230,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e055d765432a8679",
+        "type": "ui_switch",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "label": "POZO",
+        "tooltip": "",
+        "group": "3487ad09f6c265d7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "false",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "true",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "a6b138b550473528"
+            ]
+        ]
+    },
+    {
+        "id": "a6b138b550473528",
+        "type": "json",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 710,
+        "y": 280,
+        "wires": [
+            [
+                "ae6ece2ea7d8913e"
+            ]
+        ]
+    },
+    {
+        "id": "440750e731e01bc6",
+        "type": "switch",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6efd05f9c561e3a",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "RAMAL2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "9b74fc31f50b819c"
+            ]
+        ]
+    },
+    {
+        "id": "9b74fc31f50b819c",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Flujo de Agua",
+        "func": "global.set(\"flujoAgua\", msg.payload); // Genera una variable global para este valor\nmsg.topic = \"Flujo de Agua\"; // Diferenciador para la grafica\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 540,
+        "wires": [
+            [
+                "360e354cdabc0f44",
+                "90e9f19e1addf84a"
+            ]
+        ]
+    },
+    {
+        "id": "360e354cdabc0f44",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "3487ad09f6c265d7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Flujo de Agua",
+        "label": "L/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#33d17a",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 840,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9eb1fe591f5d0515",
+        "type": "mqtt in",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "RAMAL3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 480,
+        "wires": [
+            [
+                "e67c3938632e115c"
+            ]
+        ]
+    },
+    {
+        "id": "e67c3938632e115c",
+        "type": "function",
+        "z": "a21ccc40f1dba419",
+        "name": "Flujo de Agua",
+        "func": "global.set(\"flujoAgua\", msg.payload); // Genera una variable global para este valor\nmsg.topic = \"Flujo de Agua\"; // Diferenciador para la grafica\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 480,
+        "wires": [
+            [
+                "28e86e6fdafede85",
+                "90e9f19e1addf84a"
+            ]
+        ]
+    },
+    {
+        "id": "28e86e6fdafede85",
+        "type": "ui_gauge",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "group": "3487ad09f6c265d7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Flujo de Agua",
+        "label": "L/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#33d17a",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7cc9ea1eb56f5a5a",
+        "type": "mqtt out",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "topic": "rele2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1868b0174764182",
+        "x": 1170,
+        "y": 240,
+        "wires": []
+    },
+    {
         "id": "e258f39d56680981",
         "type": "ui_switch",
         "z": "a21ccc40f1dba419",
@@ -34,10 +750,75 @@
         ]
     },
     {
+        "id": "d0cd33ac2dedc33c",
+        "type": "json",
+        "z": "a21ccc40f1dba419",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "7cc9ea1eb56f5a5a"
+            ]
+        ]
+    },
+    {
+        "id": "f1868b0174764182",
+        "type": "mqtt-broker",
+        "name": "Broker Público",
+        "broker": "52.28.227.73",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "3487ad09f6c265d7",
         "type": "ui_group",
         "name": "Pozo 1",
         "tab": "420850b23a6909e1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "acc3d369064b8f9b",
+        "type": "ui_group",
+        "name": "Variaciones",
+        "tab": "359df614dc28aae6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "289e073f4a71a17e",
+        "type": "ui_group",
+        "name": "variaciones",
+        "tab": "20feef8d4c5c172a",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -52,5 +833,21 @@
         "order": 3,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "359df614dc28aae6",
+        "type": "ui_tab",
+        "name": "Clima de Cuautla",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "20feef8d4c5c172a",
+        "type": "ui_tab",
+        "name": "Tab 4",
+        "icon": "dashboard",
+        "order": 4
     }
 ]
