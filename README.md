@@ -39,6 +39,30 @@ embargo, la extracción de agua subterránea para la industria aumentó poco má
 #### REALIZACION DEL PROTOTIPO 
 
 
+#### Materiales
+A continuación se enlistará primero los materiales por parte del kit que se usarán. Cabe aclarar que este proyecto está pensado para hacerse en un grupo de tres debido a la cantidad necesaria de productos electrónicos como sensores y demás:
+
+    Sensores de flujo de agua (3 piezas)
+    ESP32-CAM (3 piezas) - En este caso usamos una tarjeta ESP32-WROOM por falta de una tercer tarjeta ESP32-CAM, pero no cambia en nada el funcionamiento, sólo el reacomodo de los pins.
+    1. RFTDI (2 piezas)
+    2. Relé (1 pieza)
+    3. HT11 (2 piezas)
+    4. Sensor ultrasónico (1 pieza)
+    5. Jumpers M-M (20 piezas aprox)
+    6. Jumpers M-H (20 piezas aprox)
+    7. Electroválvulas 12V DC (2 piezas)
+    8. Bomba de agua* (En este caso por el fin de hacerlo a una escala mayor usamos una bomba de 127V, pero la bomba del kit de 5V funciona bien para una escala menor)
+
+A continuación agregaremos también el equipo usado para plomería en caso de que quiera realizarlo a la escala mayor como el proyecto original:
+
+    9. Tubería PVC 1/2" (20 piezas de 5 cm c/u)
+    10. Codos PVC 1/2" (4 piezas 90° c/u)
+    11. Llaves de paso 1/2" (2 piezas PVC o metal)
+    12. Teflón 
+    13. Pegamento para tubería PVC hidráulica 
+    14. Cinta de aislar
+
+
 #### Esta es la forma esquematica de la central en la que se administra el pozo 
 ![padpz](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-EN-POZOS/assets/136390705/058de169-b51a-4062-8f34-560656cefc61)
 
