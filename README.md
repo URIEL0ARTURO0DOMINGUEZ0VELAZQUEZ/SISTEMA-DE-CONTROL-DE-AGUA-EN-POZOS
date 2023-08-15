@@ -36,7 +36,7 @@ embargo, la extracción de agua subterránea para la industria aumentó poco má
 
 ![imagen](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-PLUVIAL/assets/136390705/753af251-8e2f-407c-9e36-c09acbc76371)
 
-#### REALIZACION DEL PROTOTIPO 
+### REALIZACION DEL PROTOTIPO 
 
 
 #### Materiales
@@ -70,8 +70,8 @@ A continuación agregaremos también el equipo usado para plomería en caso de q
 
 ![Untitled Sketch_bb](https://github.com/URIEL0ARTURO0DOMINGUEZ0VELAZQUEZ/SISTEMA-DE-CONTROL-DE-AGUA-EN-POZOS/assets/136390705/ace79465-b186-4a16-9217-418fb1fc435e)
 
+##### programacion 
+En los documentos de este repositorio se encontrara dos codigos que se utilizaron para poder realizar el prototipo 
+el primer codigo es el que controla la central en reparticion de nuestro apreciado recurso que es el agua.
+El sengundo codigo es para poder controlar la electrovalvula y tener el contro del agua sin que se desperdicie.
 
-
-
-
-#33
